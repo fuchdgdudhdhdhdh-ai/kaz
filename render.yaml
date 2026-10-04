@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: casino-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: BOT_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: PLATEGA_MERCHANT_ID
+        sync: false
+      - key: PLATEGA_SECRET
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: RETURN_URL
+        sync: false
